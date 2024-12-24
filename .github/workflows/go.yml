@@ -1,11 +1,9 @@
 name: Go
 
 on:
-  push:
-    branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
-
+  release:
+    types: [created, published]
+    
 jobs:
   build-linux:
     runs-on: ubuntu-latest
