@@ -20,12 +20,17 @@ jobs:
         uses: actions/setup-go@v4
         with:
           go-version: '1.23'
-
+          
+      - name: Install golangci-lint
+        run: |
+          sudo apt update
+          sudo apt install golangci-lint
+          
       - name: CI
         run: |
           for dir in adapter attachment protocol service shared terminal; do
             echo "Running golangci-lint in $dir"
             cd ./$dir
             golangci-lint run
-            cd ..
+            cd ../
           done
