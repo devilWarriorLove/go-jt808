@@ -1,7 +1,7 @@
 server:
-  addr: '0.0.0.0:18001'
+  addr: '0.0.0.0:18002'
   logDir: ./logs/
   onFileApi: "/api/v1/jt808/9208"
 nats:
-  addr: '192.168.10.151:4222'
+  addr: '127.0.0.1:4222'
 
