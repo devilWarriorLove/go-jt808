@@ -2,7 +2,7 @@ name: go coverage
 
 on:
   push
-
+permissions: read-all
 jobs:
   test:
     name: Codecov coverage

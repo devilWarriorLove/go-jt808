@@ -5,6 +5,8 @@ on:
     tags:
       - "v*.*.*"
 
+permissions: write-all
+
 jobs:
   build-windows: #https://github.com/softprops/action-gh-release
     name: Build on Windows
