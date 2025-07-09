@@ -25,9 +25,6 @@ jobs:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
       -
-        name: Set up QEMU
-        uses: docker/setup-qemu-action@v3
-      -
         name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
       -
@@ -35,4 +32,6 @@ jobs:
         uses: docker/build-push-action@v6
         with:
           push: true
+          context: .
+          file: ./Dockerfile
           tags: cdcddcdc/jt808-to-gb28181:latest
