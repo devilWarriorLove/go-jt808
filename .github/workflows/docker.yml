@@ -41,15 +41,26 @@ jobs:
 #          tags: |
 #            type=match,pattern=gb28181/(v.*),group=1
 
-      - name: Build and push Docker image
-        id: push
-        uses: docker/build-push-action@3b5e8027fcad23fda98b2e3ac259d8d67585f671
+#      - name: Build and push Docker image
+#        id: push
+#        uses: docker/build-push-action@3b5e8027fcad23fda98b2e3ac259d8d67585f671
+#        with:
+#          context: .
+#          file: ./Dockerfile
+#          push: true
+#          tags: ${{ steps.meta.outputs.tags }}
+#          labels: ${{ steps.meta.outputs.labels }}
+
+      - name: 编译上传docker image
+        uses: docker/build-push-action@v2.4.0
         with:
-          context: .
-          file: ./Dockerfile
+          #Dockerfile的目录
+          context: ./Dockerfile
+          #编译的目标系统，为了方便玩客云，所以我编译了 arm/v7,amd64
+          platforms: linux/arm/v6,linux/arm/v7,amd64
           push: true
-          tags: ${{ steps.meta.outputs.tags }}
-          labels: ${{ steps.meta.outputs.labels }}
+          #docker提交的名字
+          tags: "cdcddcdc/jt808-to-gb28181:1.0.0,cdcddcdc/jt808-to-gb28181:latest"
 
 #      - name: Generate artifact attestation
 #        uses: actions/attest-build-provenance@v2
