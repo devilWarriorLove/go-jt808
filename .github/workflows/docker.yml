@@ -37,4 +37,6 @@ jobs:
           context: .
           file: ./Dockerfile
           platforms: linux/amd64,linux/arm64
-          tags: cdcddcdc/jt808-to-gb28181:latest
+          tags: |
+            cdcddcdc/jt808-to-gb28181:${{ github.ref_name }}
+            cdcddcdc/jt808-to-gb28181:latest
