@@ -12,7 +12,7 @@ name: Publish Docker image
 on:
   push:
     tags:
-      - "v*.*.*"
+      - "gb28181/v*.*.*"
 
 jobs:
   docker:
@@ -36,4 +36,5 @@ jobs:
           push: true
           context: .
           file: ./Dockerfile
+          platforms: linux/amd64,linux/arm64
           tags: cdcddcdc/jt808-to-gb28181:latest
