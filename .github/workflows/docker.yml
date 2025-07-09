@@ -12,7 +12,7 @@ name: Publish Docker image
 on:
   push:
     tags:
-      - "gb28181/v*.*.*"
+      - "v*.*.*"
 
 jobs:
   push_to_registry:
@@ -38,8 +38,8 @@ jobs:
         uses: docker/metadata-action@9ec57ed1fcdbf14dcef7dfbe97b2010124a938b7
         with:
           images: cdcddcdc/jt808-to-gb28181
-          tags: |
-            type=match,pattern=gb28181/(v.*),group=1
+#          tags: |
+#            type=match,pattern=gb28181/(v.*),group=1
 
       - name: Build and push Docker image
         id: push
