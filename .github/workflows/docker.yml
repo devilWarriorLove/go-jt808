@@ -39,10 +39,12 @@ jobs:
         with:
           images: cdcddcdc/jt808-to-gb28181
           tags: |
-            type=raw,value=latest,enable=${{ github.ref == 'refs/heads/main' }}
-            type=semver,pattern=v{{version}},input=${{ github.ref_name }}
-            type=semver,pattern=v{{major}}.{{minor}},input=${{ github.ref_name }}
-            type=semver,pattern=v{{major}},input=${{ github.ref_name }}
+            # 提取分支名或PR名中的版本部分
+            type=ref,event=branch,regex=^.*\/(v\d+\.\d+\.\d+)$
+            type=ref,event=pr,regex=^.*\/(v\d+\.\d+\.\d+)$
+            # 直接使用语义化版本标签
+            type=semver,pattern={{version}}
+            type=semver,pattern={{major}}.{{minor}}
 
       - name: Build and push Docker image
         id: push
