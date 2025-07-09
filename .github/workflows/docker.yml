@@ -39,7 +39,7 @@ jobs:
         with:
           images: cdcddcdc/jt808-to-gb28181
           tags: |
-            type=match,pattern=gb28181/(v.*),group=1}
+            type=match,pattern=gb28181/(v.*),group=1
 
       - name: Build and push Docker image
         id: push
