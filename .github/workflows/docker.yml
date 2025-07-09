@@ -59,7 +59,7 @@ jobs:
           file: ./Dockerfile
           push: true
           #docker提交的名字
-          tags: "cdcddcdc/jt808-to-gb28181:0.1.0"
+          tags: cdcddcdc/jt808-to-gb28181:0.1.0
 
 #      - name: Generate artifact attestation
 #        uses: actions/attest-build-provenance@v2
