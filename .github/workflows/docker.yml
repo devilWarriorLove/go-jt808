@@ -57,11 +57,9 @@ jobs:
           #Dockerfile的目录
           context: .
           file: ./Dockerfile
-          #编译的目标系统，为了方便玩客云，所以我编译了 arm/v7,amd64
-          platforms: linux/arm/v6,linux/arm/v7,amd64
           push: true
           #docker提交的名字
-          tags: "cdcddcdc/jt808-to-gb28181:0.1.0,cdcddcdc/jt808-to-gb28181:latest"
+          tags: "cdcddcdc/jt808-to-gb28181:0.1.0"
 
 #      - name: Generate artifact attestation
 #        uses: actions/attest-build-provenance@v2
